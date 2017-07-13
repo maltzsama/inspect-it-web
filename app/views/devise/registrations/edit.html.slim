@@ -6,9 +6,16 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = devise_error_messages!
     .field
+      = f.label :nome
+      = f.text_field :name, autofocus: true, class: "form-control"
+    
+    .field
+      = f.label :código_de_matricula
+      = f.text_field :code, class: "form-control"
+
+    .field
       = f.label :email
-      br
-      = f.email_field :email, autofocus: true, class: "form-control"
+      = f.email_field :email, class: "form-control"
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       div
         | Currently waiting confirmation for: 
