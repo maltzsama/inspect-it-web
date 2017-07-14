@@ -54,5 +54,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slim'
 
+gem 'jquery-rails'
+
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'autoprefixer-rails'
+gem 'devise', '~> 4.0'

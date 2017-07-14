@@ -1,0 +1,24 @@
+.container
+  br
+  h1
+    | Nova Empresa
+  - if !@company.errors.empty?
+    .alert.alert-error
+      ul
+        - @company.errors.full_messages.each do |msg|
+          li
+            = msg
+  .form-group
+    = form_for @company do |f|
+      = f.label :nome
+      = f.text_field :name, class: "form-control"
+      = f.label :CNPJ
+      = f.text_field :cnpj, class: "form-control"
+      = f.label :endereço
+      = f.text_field :address, class: "form-control"
+      = f.label :telefone
+      = f.text_field :phone, class: "form-control"
+      = f.label :contato
+      = f.text_field :contact, class: "form-control"
+      br
+      = f.submit "Salvar", class: "btn btn-outline-primary"

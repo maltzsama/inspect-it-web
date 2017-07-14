@@ -1,0 +1,40 @@
+.container
+  br
+  h1
+    | Empresas
+  br
+  = link_to "Nova Empresa", new_company_path , class: "btn btn-outline-primary"
+  br
+  br
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th
+          | Nome
+        th
+          | CNPJ
+        th
+          | Endereço
+        th
+          | Telefone
+        th
+          | Contato
+        th
+
+      tbody
+        - @companies.each do |company|
+          tr
+            td
+              = company.name
+            td
+              = company.cnpj
+            td
+              = company.address
+            td
+              = company.phone
+            td
+              = company.contact
+            td
+              .btn-group[role="group"]
+                = link_to "Detalhes", company, method: :get, class: "btn btn-outline-info"
+                = link_to "Delete", company, method: :delete, class: "btn btn-outline-danger"

@@ -1,2 +1,13 @@
-h1
-  porra
+.jumbotron.jumbotron-fluid
+  .container
+    h1.display-3
+      | BRUMED
+    p.lead
+      | Sistema de relatórios de inspeção BRUMED
+    hr.my-4
+    .row.justify-content-between
+      - if user_signed_in?
+        = link_to('Logout', destroy_user_session_path, :method => :delete,class: "btn btn-lg btn-outline-danger col-4")
+      - else
+        = link_to('Log in', new_user_session_path, class: "btn btn-lg btn-outline-success col-4")
+        = link_to('Sign up', new_user_registration_path, class: "btn btn-lg btn-outline-primary col-4")
