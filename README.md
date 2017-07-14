@@ -1,24 +1,17 @@
-# README
+# Inspect-IT Web API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+What you need to run it?
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+apt install rbenv ruby-build
+rbenv install 2.4.0
+git clone
+git checkout develop
+git pull origin develop
+cd <dir>
+bundle update
+rake db:create
+rake db:migrate
+rails s
+```
+open your browser.
