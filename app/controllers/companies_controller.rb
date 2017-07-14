@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :destroy]
+
   def index
     @companies = Company.all
   end
@@ -12,11 +14,13 @@ class CompaniesController < ApplicationController
     if @company.save
       redirect_to companies_path, flash: { success: "A empresa #{@company.name} foi salva com sucesso." }
     else
-      redirect_to computers_path, flash: { error: "Falha ao salvar a empresa #{msg}." }
+      redirect_to companies_path, flash: { error: "Falha ao salvar a empresa #{@company.errors.messages.first}." }
     end
   end
 
   def destroy
+    @company.destroy
+    redirect_to companies_path, flash: { alert: "A empresa #{@company.name} foi deletada."}
   end
 
   def show
