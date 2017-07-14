@@ -36,5 +36,5 @@
               = company.contact
             td
               .btn-group[role="group"]
-                /= link_to "Show", computer, method: :get, class: "btn btn-outline-info"
+                = link_to "Detalhes", company, method: :get, class: "btn btn-outline-info"
                 = link_to "Delete", company, method: :delete, class: "btn btn-outline-danger"
