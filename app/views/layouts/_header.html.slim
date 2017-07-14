@@ -6,5 +6,16 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse
       li.nav-item
         = link_to "Home", root_path
   ul.navbar-nav
-    li
-      = link_to "home", root_path
+    - if user_signed_in?
+      / li
+        = link_to('Administration',  administrator_index_path, :method => :get, class: "nav-link") if current_user.kind
+      li
+        = link_to('Profile', edit_user_registration_path, :method => :get, class: "nav-link")
+      li
+        = link_to('Logout', destroy_user_session_path, :method => :delete,class: "nav-link") 
+    - else
+      li
+        = link_to('Log in', new_user_session_path, class: "nav-link")
+      |  | 
+      li
+        = link_to('Sign up', new_user_registration_path, class: "nav-link")

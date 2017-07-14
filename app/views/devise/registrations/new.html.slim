@@ -1,0 +1,38 @@
+.container
+  br
+  h2
+    | Sign up
+  br
+  .form-group
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :nome
+        = f.text_field :name, autofocus: true, class: "form-control"
+
+      .field
+        = f.label :código_de_matrícula
+        = f.text_field :code, class: "form-control"
+      .field
+        = f.label :email
+        = f.email_field :email, class: "form-control email"
+    
+      .field
+        = f.label "Senha"
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            |  tamanho mínimo)
+        br
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+    
+      .field
+        = f.label :confirmação_da_senha
+        br
+        = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+      br
+      = f.submit "Sign up", class: "btn btn-outline-primary"
+      br
+  br
+  = render "devise/shared/links"
