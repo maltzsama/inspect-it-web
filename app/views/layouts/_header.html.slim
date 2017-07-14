@@ -3,8 +3,11 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse
     span.navbar-toggler-icon
   = link_to "Brumed Web", root_path, class: "navbar-brand"
   ul.navbar-nav.mr-auto
+    - if user_signed_in?
       li.nav-item
-        = link_to "Home", root_path
+        = link_to "Empresas", company_index_path, class: "nav-link"
+      / li.nav-item
+      /   = link_to "Models", computers_path,class: "nav-link"
   ul.navbar-nav
     - if user_signed_in?
       / li
