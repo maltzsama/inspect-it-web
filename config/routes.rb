@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   authenticate :user do
-    resources :companies, only: [:index, :new, :show, :destroy]
+    resources :companies, only: [:index, :new, :create, :show, :destroy]
 
   end
 
