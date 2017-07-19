@@ -26,6 +26,7 @@
       strong
         | Contato:
       = @company.contact
+    = link_to "Adicionar Inspeção", new_inspection_path(company_id: @company.id)
     / table.table.table-bordered.table-striped
     /   thead
     /     |  

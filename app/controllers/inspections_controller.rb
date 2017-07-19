@@ -6,7 +6,7 @@ class InspectionsController < ApplicationController
   end
 
   def new
-    @inspection = Inspection.new
+    @inspection = Inspection.new(company_id: params[:company_id])
   end
 
   def show
@@ -55,6 +55,6 @@ class InspectionsController < ApplicationController
   end
   
   def inspection_params
-    params.require(:inspection).permit(:name)
+    params.require(:inspection).permit(:name, :company_id)
   end
 end
