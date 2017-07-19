@@ -9,9 +9,6 @@ class InspectionsController < ApplicationController
     @inspection = Inspection.new
   end
 
-  def destroy
-  end
-
   def show
   end
 
@@ -29,6 +26,26 @@ class InspectionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @inspection.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @inspection.update(inspection_params)
+        format.html { redirect_to inspections_path, notice: 'Inspeção atualizada com sucesso.' }
+        format.json { render :show, status: :ok, location: @inspection }
+      else
+        format.html { render :edit }
+        format.json { render json: @inspection.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @inspection.destroy
+    respond_to do |format|
+      format.html { redirect_to inspections_url, notice: 'Inspection was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
   
