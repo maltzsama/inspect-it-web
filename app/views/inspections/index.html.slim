@@ -2,7 +2,7 @@
   h1
     | Inspeções
   br
-    = link_to "Nova Empresa", new_inspection_path , class: "btn btn-outline-primary"
+    = link_to "Nova Inspeção", new_inspection_path , class: "btn btn-outline-primary"
   br
   table.table.table-bordered.table-striped
     thead
@@ -12,7 +12,7 @@
         th
 
       tbody
-        - @inspections.each do |company|
+        - @inspections.each do |inspection|
           tr
             td
               = inspection.name
