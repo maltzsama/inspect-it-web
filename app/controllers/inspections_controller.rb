@@ -44,7 +44,7 @@ class InspectionsController < ApplicationController
   def destroy
     @inspection.destroy
     respond_to do |format|
-      format.html { redirect_to inspections_url, notice: 'Inspection was successfully destroyed.' }
+      format.html { redirect_to inspections_url, notice: 'Inspeção deletada com sucesso.' }
       format.json { head :no_content }
     end
   end
