@@ -1,2 +1,5 @@
-<h1>Inspections#edit</h1>
-<p>Find me in app/views/inspections/edit.html.erb</p>
+h1
+  | Editar Inspeção
+  = @inspection.name
+= render 'form', inspection: @inspection
+= link_to 'Voltar', inspections_path, class: "btn btn-outline-primary"
