@@ -1,2 +1,17 @@
-<h1>Inspections#show</h1>
-<p>Find me in app/views/inspections/show.html.erb</p>
+.container
+  h1
+    | Inspeção
+  - if @inspection.errors.any?
+    .alert.alert-error
+      ul
+        - @inspection.errors.full_messages.each do |msg|
+          li
+            = msg
+  br
+  .well
+    p
+      strong
+        | Nome: 
+      = @inspection.name
+
+  = link_to 'Voltar', inspections_path, class:"btn btn-outline-primary"

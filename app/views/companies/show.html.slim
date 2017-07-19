@@ -3,7 +3,7 @@
   h1
     | Empresa 
     = @company.name
-  - if !@company.errors.empty?
+  - if @company.errors.any?
     .alert.alert-error
       ul
         - @company.errors.full_messages.each do |msg|
@@ -46,4 +46,4 @@
     /           = package.name
     /         td
     /           = number_to_human_size(package.attachment.file.size)
-    = link_to 'Back', companies_path, class:"btn btn-outline-primary"
+    = link_to 'Voltar', companies_path, class:"btn btn-outline-primary"
