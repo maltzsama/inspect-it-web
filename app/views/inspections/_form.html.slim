@@ -1,0 +1,15 @@
+= form_for @inspection do |f|
+  - if @inspection.errors.any?
+      .alert.alert-error
+        ul
+          - @inspection.errors.full_messages.each do |msg|
+            li
+              = msg
+
+  .form_group
+    = f.label :nome
+    = f.text_field :name
+  
+    br
+    .actions
+      = f.submit "Salvar", class: "btn btn-outline-primary"
