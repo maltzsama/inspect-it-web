@@ -1,0 +1,6 @@
+.container
+  h1
+    | Editar Inspeção
+    = @inspection.name
+  = render 'form', inspection: @inspection
+  = link_to 'Voltar', inspections_path(company_id: @inspection.company_id), class: "btn btn-outline-primary"
