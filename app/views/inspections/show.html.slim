@@ -14,4 +14,4 @@
         | Nome: 
       = @inspection.name
 
-  = link_to 'Voltar', inspections_path, class:"btn btn-outline-primary"
+  = link_to 'Voltar', inspections_path(company_id: @company_id), class:"btn btn-outline-primary"

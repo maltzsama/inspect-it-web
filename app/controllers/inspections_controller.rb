@@ -2,7 +2,12 @@ class InspectionsController < ApplicationController
   before_action :set_inspection, only: [:show, :edit, :update, :destroy]
 
   def index
-    @inspections = Inspection.all
+    if params[:company_id].present?
+      @company_id = params[:company_id]
+      @inspections = Inspection.where(company_id: @company_id)
+    else
+      @inspections = Inspection.all
+    end
   end
 
   def new
@@ -20,7 +25,8 @@ class InspectionsController < ApplicationController
 
     respond_to do |format|
       if @inspection.save
-        format.html { redirect_to inspections_path, notice: 'Inspeção foi criada com sucesso.' }
+        format.html { redirect_to inspections_path(company_id: inspection_params[:company_id]),
+        notice: 'Inspeção foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @inspection }
       else
         format.html { render :new }
@@ -32,7 +38,8 @@ class InspectionsController < ApplicationController
   def update
     respond_to do |format|
       if @inspection.update(inspection_params)
-        format.html { redirect_to inspections_path, notice: 'Inspeção atualizada com sucesso.' }
+        format.html { redirect_to inspections_path(company_id: inspection_params[:company_id]),
+        notice: 'Inspeção atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @inspection }
       else
         format.html { render :edit }
