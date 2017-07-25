@@ -13,6 +13,6 @@
     strong
       | Description:
     = @regulation.description
-  = link_to 'Edit', edit_regulation_path(@regulation)
+  = link_to 'Editar', edit_regulation_path(@regulation), class: "btn btn-outline-info"
   |  | 
-  = link_to 'Back', regulations_path
+  = link_to 'Voltar', regulations_path, class: "btn btn-outline-info"
