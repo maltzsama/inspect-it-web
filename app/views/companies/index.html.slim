@@ -37,4 +37,4 @@
             td
               .btn-group[role="group"]
                 = link_to "Detalhes", company, method: :get, class: "btn btn-outline-info"
-                = link_to "Delete", company, method: :delete, class: "btn btn-outline-danger"
+                = link_to "Delete", company, method: :delete,data: { confirm: 'Você tem certeza?' }, class: "btn btn-outline-danger"

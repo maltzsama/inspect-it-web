@@ -1,0 +1,7 @@
+.container
+  h1
+    | Editing Regulation
+  = render 'form', regulation: @regulation
+  = link_to 'Mostrar', @regulation
+  |  | 
+  = link_to 'Voltar', regulations_path

@@ -1,0 +1,18 @@
+.container
+  p#notice
+    = notice
+  p
+    strong
+      | Code:
+    = @regulation.code
+  p
+    strong
+      | Name:
+    = @regulation.name
+  p
+    strong
+      | Description:
+    = @regulation.description
+  = link_to 'Edit', edit_regulation_path(@regulation)
+  |  | 
+  = link_to 'Back', regulations_path

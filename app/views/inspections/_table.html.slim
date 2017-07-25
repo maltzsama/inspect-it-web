@@ -14,4 +14,4 @@ table.table.table-bordered.table-striped
               .btn-group[role="group"]
                 = link_to "Detalhes", inspection, method: :get, class: "btn btn-outline-info"
                 = link_to "Editar", edit_inspection_path(inspection), class: "btn btn-outline-info"
-                = link_to "Delete", inspection, method: :delete, class: "btn btn-outline-danger"
+                = link_to "Delete", inspection, method: :delete, data: { confirm: 'Você tem certeza?' },class: "btn btn-outline-danger"
