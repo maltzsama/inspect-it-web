@@ -1,6 +1,7 @@
-h1
-  | Editar Ocorrência
-= render 'form', occurrence: @occurrence
-= link_to 'Mostrar', @occurrence
-|  | 
-= link_to 'Voltar', occurrences_path
+.container
+  h1
+    | Editar Ocorrência
+  = render 'form', occurrence: @occurrence
+  = link_to 'Detalhes', @occurrence, class: "btn btn-outline-primary"
+  |  | 
+  = link_to 'Voltar', occurrences_path, class: "btn btn-outline-primary"

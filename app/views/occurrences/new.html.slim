@@ -1,4 +1,5 @@
-h1
-  | New Occurrence
-= render 'form', occurrence: @occurrence
-= link_to 'Back', occurrences_path
+.container
+  h1
+    | Nova Ocorrência
+  = render 'form', occurrence: @occurrence
+  = link_to 'Voltar', occurrences_path, class: "btn btn-outline-primary"
