@@ -1,4 +1,5 @@
 .container
+  br
   p#notice
     = notice
   p
@@ -13,6 +14,7 @@
     strong
       | Description:
     = @regulation.description
+  br
   = link_to 'Editar', edit_regulation_path(@regulation), class: "btn btn-outline-info"
-  |  | 
+  |   
   = link_to 'Voltar', regulations_path, class: "btn btn-outline-info"
