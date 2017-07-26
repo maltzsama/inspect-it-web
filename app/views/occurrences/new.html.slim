@@ -1,0 +1,5 @@
+.container
+  h1
+    | Nova Ocorrência
+  = render 'form', occurrence: @occurrence
+  = link_to 'Voltar', occurrences_path, class: "btn btn-outline-primary"

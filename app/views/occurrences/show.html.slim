@@ -1,0 +1,19 @@
+.container
+  p#notice
+    = notice
+  p
+    strong
+      | Description:
+    = @occurrence.description
+  p
+    strong
+      | Severity:
+    = @occurrence.severity
+  p
+    strong
+      | Todo:
+    = @occurrence.todo
+
+  = link_to 'Editar', edit_occurrence_path(@occurrence)
+  |  | 
+  = link_to 'Voltar', occurrences_path
