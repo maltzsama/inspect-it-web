@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :occurrences
   devise_for :users
   authenticate :user do
     resources :regulations
