@@ -15,6 +15,9 @@
     .field
       = form.label :prazo
       = form.text_field :todo, id: :occurrence_todo, class: "form-control"
+    .field
+      = form.label :imagem
+      = form.file_field :image, class: "form-control"
 
     .actions
       = form.submit "Salvar", class: "btn btn-outline-primary"

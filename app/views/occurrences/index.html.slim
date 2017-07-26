@@ -1,6 +1,4 @@
 .container
-  p#notice
-    = notice
   h1
     | Ocorrências
   br
@@ -11,6 +9,8 @@
     thead
       tr
         th
+          |Imagem
+        th
           | Descrição
         th
           | Prioridade
@@ -20,6 +20,9 @@
     tbody
       - @occurrences.each do |occurrence|
         tr
+          td
+            - if occurrence.image?
+              = image_tag occurrence.image.thumb.url
           td
             = occurrence.description
           td
