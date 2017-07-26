@@ -1,0 +1,9 @@
+.container
+  br
+  h1
+    | Editar regulamentação
+  br
+  = render 'form', regulation: @regulation
+  = link_to 'Mostrar', @regulation, class: "btn btn-outline-info"
+  |  | 
+  = link_to 'Voltar', regulations_path, class: "btn btn-outline-info"

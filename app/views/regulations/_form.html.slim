@@ -1,0 +1,22 @@
+.form_group
+  = form_with(model: regulation, local: true) do |form|
+    - if regulation.errors.any?
+      #error_explanation
+        h2
+          = pluralize(regulation.errors.count, "error")
+          |  prohibited this regulation from being saved:
+        ul
+          - regulation.errors.full_messages.each do |message|
+            li
+              = message
+    .field
+      = form.label :code
+      = form.text_field :code, id: :regulation_code, class: "form-control"
+    .field
+      = form.label :name
+      = form.text_field :name, id: :regulation_name, class: "form-control"
+    .field
+      = form.label :description
+      = form.text_field :description, id: :regulation_description, class: "form-control"
+    .actions
+      = form.submit "Salvar", class: "btn btn-outline-primary"
