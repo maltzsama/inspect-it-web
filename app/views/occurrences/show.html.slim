@@ -1,0 +1,18 @@
+p#notice
+  = notice
+p
+  strong
+    | Description:
+  = @occurrence.description
+p
+  strong
+    | Severity:
+  = @occurrence.severity
+p
+  strong
+    | Todo:
+  = @occurrence.todo
+
+= link_to 'Edit', edit_occurrence_path(@occurrence)
+|  | 
+= link_to 'Back', occurrences_path
