@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :destroy]
 
+  # GET /inspections
+  # GET /inspections.json
   def index
     @companies = Company.all
   end
@@ -11,16 +13,23 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
-    if @company.save
-      redirect_to companies_path, flash: { success: "A empresa #{@company.name} foi salva com sucesso." }
-    else
-      redirect_to companies_path, flash: { error: "Falha ao salvar a empresa #{@company.errors.messages.first}." }
+    respond_to do |format|
+      if @company.save
+        format.html { redirect_to companies_path, notice: "A empresa #{@company.name} foi salva com sucesso." }
+        format.json { render :show, status: :created, location: @company }
+      else
+        format.html { render :new }
+        format.json { render json: @company.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     @company.destroy
-    redirect_to companies_path, flash: { alert: "A empresa #{@company.name} foi deletada."}
+    respond_to do |format|
+      format.html { redirect_to companies_path, notice: "A empresa #{@company.name} foi deletada." }
+      format.json { head :no_content }
+    end
   end
 
   def show
