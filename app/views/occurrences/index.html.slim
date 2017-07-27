@@ -1,8 +1,9 @@
 .container
+  br
   h1
     | Ocorrências
   br
-  = link_to 'Nova ocorrência', new_occurrence_path, class: "btn btn-outline-primary"
+  = link_to 'Nova ocorrência', new_occurrence_path(inspection_id: @inspection_id), class: "btn btn-outline-primary"
   br
   br
   table.table.table-bordered.table-striped

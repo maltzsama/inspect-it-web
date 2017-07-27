@@ -4,7 +4,12 @@ class OccurrencesController < ApplicationController
   # GET /occurrences
   # GET /occurrences.json
   def index
-    @occurrences = Occurrence.all
+    if params[:inspection_id].present?
+      @inspection_id = params[:inspection_id]
+      @occurrences = Occurrence.where(inspection_id: @inspection_id)
+    else
+      @occurrences = Occurrence.all
+    end
   end
 
   # GET /occurrences/1
@@ -14,7 +19,7 @@ class OccurrencesController < ApplicationController
 
   # GET /occurrences/new
   def new
-    @occurrence = Occurrence.new
+    @occurrence = Occurrence.new(inspection_id: params[:inspection_id])
   end
 
   # GET /occurrences/1/edit
@@ -28,7 +33,9 @@ class OccurrencesController < ApplicationController
 
     respond_to do |format|
       if @occurrence.save
-        format.html { redirect_to @occurrence, notice: 'Occurrence was successfully created.' }
+        format.html { redirect_to occurrences_path(inspection_id: occurrence_params[:inspection_id]), 
+        notice: 'Ocorrência foi criada com sucesso.' }
+
         format.json { render :show, status: :created, location: @occurrence }
       else
         format.html { render :new }
@@ -42,7 +49,8 @@ class OccurrencesController < ApplicationController
   def update
     respond_to do |format|
       if @occurrence.update(occurrence_params)
-        format.html { redirect_to @occurrence, notice: 'Occurrence was successfully updated.' }
+        format.html { redirect_to occurrence_path(inspection_id: occurrence_params[:inspection_id]),
+        notice: 'Ocorrência foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @occurrence }
       else
         format.html { render :edit }
@@ -69,6 +77,6 @@ class OccurrencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def occurrence_params
-      params.require(:occurrence).permit(:description, :severity, :todo, :image)
+      params.require(:occurrence).permit(:description, :severity, :todo, :image, :inspection_id)
     end
 end
