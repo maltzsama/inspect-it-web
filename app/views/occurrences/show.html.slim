@@ -1,4 +1,6 @@
 .container
+  br
+  br
   p
     strong
       | Description:
@@ -11,7 +13,14 @@
     strong
       | Todo:
     = @occurrence.todo
+  p
+    strong
+      | Imagem:
+    br
+    br
+    - if @occurrence.image?
+      = image_tag @occurrence.image.url
 
-  = link_to 'Editar', edit_occurrence_path(@occurrence)
-  |  | 
-  = link_to 'Voltar', occurrences_path
+  = link_to 'Editar', edit_occurrence_path(@occurrence),class: "btn btn-outline-primary"
+  |   
+  = link_to 'Voltar', occurrences_path, class: "btn btn-outline-primary"

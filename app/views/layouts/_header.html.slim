@@ -6,8 +6,8 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse
     - if user_signed_in?
       li.nav-item
         = link_to "Empresas", companies_path, class: "nav-link"
-      / li.nav-item
-      /   = link_to "Models", computers_path,class: "nav-link"
+      li.nav-item
+      = link_to "Regulamentações", regulations_path,class: "nav-link"
   ul.navbar-nav
     - if user_signed_in?
       / li
