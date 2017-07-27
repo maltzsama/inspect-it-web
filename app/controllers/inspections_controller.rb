@@ -1,6 +1,8 @@
 class InspectionsController < ApplicationController
   before_action :set_inspection, only: [:show, :edit, :update, :destroy]
 
+  # GET /inspections
+  # GET /inspections.json
   def index
     if params[:company_id].present?
       @company_id = params[:company_id]
