@@ -1,0 +1,20 @@
+.container
+  br
+  p#notice
+    = notice
+  p
+    strong
+      | Code:
+    = @regulation.code
+  p
+    strong
+      | Name:
+    = @regulation.name
+  p
+    strong
+      | Description:
+    = @regulation.description
+  br
+  = link_to 'Editar', edit_regulation_path(@regulation), class: "btn btn-outline-info"
+  |   
+  = link_to 'Voltar', regulations_path, class: "btn btn-outline-info"

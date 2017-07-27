@@ -1,0 +1,18 @@
+table.table.table-bordered.table-striped
+    thead
+      tr
+        th
+          | Descrição
+        th
+
+      tbody
+        - @inspection.occurrence_ids.each do |value|
+          - occurrence = Occurrence.find(value)
+          tr
+            td
+              = occurrence.description
+            td
+              .btn-group[role="group"]
+                = link_to "Detalhes", occurrence, method: :get, class: "btn btn-outline-info"
+                = link_to "Editar", edit_occurrence_path(occurrence), class: "btn btn-outline-info"
+                = link_to "Delete", occurrence, method: :delete, class: "btn btn-outline-danger"

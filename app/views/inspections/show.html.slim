@@ -1,0 +1,35 @@
+.container
+  br
+  h1
+    | Inspeção
+  - if @inspection.errors.any?
+    .alert.alert-error
+      ul
+        - @inspection.errors.full_messages.each do |msg|
+          li
+            = msg
+  br
+  .well
+    p
+      strong
+        | Nome: 
+      = @inspection.name
+    p
+      strong
+        | Criado: 
+      = @inspection.created_at.strftime("%H:%M %d/%m/%Y")
+    p
+      strong
+        | Atualizado: 
+      = @inspection.updated_at.strftime("%H:%M %d/%m/%Y")
+
+    = link_to "Adicionar ocorrência", new_occurrence_path(inspection_id: @inspection.id), class:"btn btn-outline-primary"
+    
+    br
+    br
+
+    = render 'tableoccurrences', occurrences: @occurrences
+
+
+  br
+  = link_to 'Voltar', inspections_path(company_id: @inspection.company_id), class:"btn btn-outline-primary"

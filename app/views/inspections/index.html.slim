@@ -1,0 +1,8 @@
+.container
+  br
+  h1
+    | Inspeções
+  br
+    = link_to "Nova Inspeção", new_inspection_path(company_id: @company_id) , class: "btn btn-outline-primary"
+  br
+  = render 'table', inspections: @inspections

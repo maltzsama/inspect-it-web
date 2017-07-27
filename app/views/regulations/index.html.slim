@@ -1,0 +1,33 @@
+.container
+  br
+  h1
+    | Regulamentação
+  br
+  = link_to 'Nova Regulamentação', new_regulation_path, class: "btn btn-outline-primary"
+  br
+  br
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th
+          | Código
+        th
+          | Nome
+        th
+          | Descrição
+        th[colspan="3"]
+    tbody
+      - @regulations.each do |regulation|
+        tr
+          td
+            = regulation.code
+          td
+            = regulation.name
+          td
+            = regulation.description
+          td
+            .btn-group[role="group"]
+              = link_to 'Mostrar', regulation, class: "btn btn-outline-info"
+              = link_to 'Editar', edit_regulation_path(regulation), class: "btn btn-outline-info"
+              = link_to 'Deletar', regulation, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-outline-danger"
+br

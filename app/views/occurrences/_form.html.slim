@@ -1,0 +1,25 @@
+.form_group
+  = form_with(model: occurrence, local: true) do |form|
+    - if occurrence.errors.any?
+      .alert.alert-error
+        ul
+          - occurrence.errors.full_messages.each do |message|
+            li
+              = message
+              
+    = form.hidden_field :inspection_id
+    .field
+      = form.label :descrição
+      = form.text_field :description, id: :occurrence_description, class: "form-control"
+    .field
+      = form.label :prioridade
+      = form.text_field :severity, id: :occurrence_severity, class: "form-control"
+    .field
+      = form.label :prazo
+      = form.text_field :todo, id: :occurrence_todo, class: "form-control"
+    .field
+      = form.label :imagem
+      = form.file_field :image, class: "form-control"
+
+    .actions
+      = form.submit "Salvar", class: "btn btn-outline-primary"

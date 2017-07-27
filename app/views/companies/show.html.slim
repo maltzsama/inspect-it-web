@@ -3,7 +3,7 @@
   h1
     | Empresa 
     = @company.name
-  - if !@company.errors.empty?
+  - if @company.errors.any?
     .alert.alert-error
       ul
         - @company.errors.full_messages.each do |msg|
@@ -26,24 +26,11 @@
       strong
         | Contato:
       = @company.contact
-    / table.table.table-bordered.table-striped
-    /   thead
-    /     |  
-    /     tr
-    /       th
-    /         | Download Link
-    /       th
-    /         | Description
-    /       th
-    /         | Size
-    /   tbody
-    /     - @company.package_ids.each do |value|
-    /       - package = Package.find(value)
-    /       tr
-    /         td
-    /           = link_to package.attachment_identifier, package.attachment_url
-    /         td
-    /           = package.name
-    /         td
-    /           = number_to_human_size(package.attachment.file.size)
-    = link_to 'Back', companies_path, class:"btn btn-outline-primary"
+    = link_to "Adicionar Inspeção", new_inspection_path(company_id: @company.id), class:"btn btn-outline-primary"
+    br
+    br
+
+    = render 'tableinspections', inspections: @inspections
+    
+    br
+    = link_to 'Voltar', companies_path, class:"btn btn-outline-primary"

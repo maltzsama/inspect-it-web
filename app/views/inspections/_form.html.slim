@@ -1,0 +1,16 @@
+.form_group
+  = form_for @inspection do |f|
+    - if @inspection.errors.any?
+        .alert.alert-error
+          ul
+            - @inspection.errors.full_messages.each do |msg|
+              li
+                = msg
+    br
+    = f.hidden_field :company_id
+    = f.label :nome
+    = f.text_field :name, class: "form-control"
+  
+    br
+    .actions
+      = f.submit "Salvar", class: "btn btn-outline-primary"

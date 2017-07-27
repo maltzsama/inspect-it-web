@@ -1,0 +1,26 @@
+table.table.table-bordered.table-striped
+    thead
+      tr
+        th
+          | Nome
+        th
+          | Criado
+        th
+          | Atualizado
+        th
+
+      tbody
+        - @company.inspection_ids.each do |value|
+          - inspection = Inspection.find(value)
+          tr
+            td
+              = inspection.name
+            td
+              = inspection.created_at.strftime("%H:%M %d/%m/%Y") 
+            td
+              = inspection.updated_at.strftime("%H:%M %d/%m/%Y")
+            td
+              .btn-group[role="group"]
+                = link_to "Detalhes", inspection, method: :get, class: "btn btn-outline-info"
+                = link_to "Editar", edit_inspection_path(inspection), class: "btn btn-outline-info"
+                = link_to "Delete", inspection, method: :delete, class: "btn btn-outline-danger"

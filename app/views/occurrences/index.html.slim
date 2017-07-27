@@ -1,0 +1,38 @@
+.container
+  br
+  h1
+    | Ocorrências
+  br
+  = link_to 'Nova ocorrência', new_occurrence_path(inspection_id: @inspection_id), class: "btn btn-outline-primary"
+  br
+  br
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th
+          |Imagem
+        th
+          | Descrição
+        th
+          | Prioridade
+        th
+          | Prazo
+        th[colspan="3"]
+    tbody
+      - @occurrences.each do |occurrence|
+        tr
+          td
+            - if occurrence.image?
+              = image_tag occurrence.image.thumb.url
+          td
+            = occurrence.description
+          td
+            = occurrence.severity
+          td
+            = occurrence.todo
+          td
+            .btn-group[role="group"]
+              = link_to 'Detalhes', occurrence, class: "btn btn-outline-info"
+              = link_to 'Editar', edit_occurrence_path(occurrence), class: "btn btn-outline-info"
+              = link_to 'Delete', occurrence, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-outline-danger"
+  br
