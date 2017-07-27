@@ -4,6 +4,10 @@ table.table.table-bordered.table-striped
         th
           | Nome
         th
+          | Criado
+        th
+          | Atualizado
+        th
 
       tbody
         - @company.inspection_ids.each do |value|
@@ -11,6 +15,10 @@ table.table.table-bordered.table-striped
           tr
             td
               = inspection.name
+            td
+              = inspection.created_at.strftime("%H:%M %d/%m/%Y") 
+            td
+              = inspection.updated_at.strftime("%H:%M %d/%m/%Y")
             td
               .btn-group[role="group"]
                 = link_to "Detalhes", inspection, method: :get, class: "btn btn-outline-info"
