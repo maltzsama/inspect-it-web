@@ -6,6 +6,8 @@
           - occurrence.errors.full_messages.each do |message|
             li
               = message
+              
+    = form.hidden_field :inspection_id
     .field
       = form.label :descrição
       = form.text_field :description, id: :occurrence_description, class: "form-control"
