@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  get 'occurrences/select' => 'occurrences#select', as: :select
   authenticate :user do
     resources :regulations
     resources :companies, only: [:index, :new, :create, :show, :destroy]

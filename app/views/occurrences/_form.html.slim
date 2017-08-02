@@ -1,4 +1,5 @@
 .form_group
+  #modalwindow.modal.hide.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
   = form_with(model: occurrence, local: true) do |form|
     - if occurrence.errors.any?
       .alert.alert-error
@@ -20,6 +21,8 @@
     .field
       = form.label :imagem
       = form.file_field :image, class: "form-control"
+
+    = link_to 'selecionar', select_path, :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modalwindow', class: "btn btn-outline-primary"
 
     .actions
       = form.submit "Salvar", class: "btn btn-outline-primary"

@@ -69,6 +69,15 @@ class OccurrencesController < ApplicationController
     end
   end
 
+  def select
+    @regulations = Regulation.all
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    return 1
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_occurrence
