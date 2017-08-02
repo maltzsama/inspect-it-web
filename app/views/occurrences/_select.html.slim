@@ -1,8 +1,13 @@
-.modal-header
-  button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
-  h3 #myModalLabel Modal header
-.modal-body
-  | **here comes whatever you want to show!**
-.modal-footer
-  button.btn aria-hidden="true" data-dismiss="modal"  Close
-  button.btn.btn-primary Save changes
+.modal-dialog role="document" 
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Selecione a NR
+        button.close aria-label="Close" data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+      .modal-body
+        | Lista de NR entra aqui
+        h4
+          = @regulations.first.name
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+        button.btn.btn-primary type="button"  Save changes
