@@ -61,3 +61,6 @@ gem 'autoprefixer-rails'
 gem 'devise', '~> 4.0'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick", '~> 4.8'
+
+#bootstrap
+gem 'tether-rails'

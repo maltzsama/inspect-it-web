@@ -1,5 +1,5 @@
 .form_group
-  #modalwindow.modal.hide.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+  #modalwindow.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
   = form_with(model: occurrence, local: true) do |form|
     - if occurrence.errors.any?
       .alert.alert-error
