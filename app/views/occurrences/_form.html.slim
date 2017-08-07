@@ -1,3 +1,11 @@
+javascript:
+  | $(document).ready(function() {
+    | $(".js-example-basic-single").select2({
+          | placeholder: "Choose a person"
+        | });
+  | });
+ 
+
 .form_group
   = form_with(model: occurrence, local: true) do |form|
     - if occurrence.errors.any?
@@ -20,6 +28,14 @@
     .field
       = form.label :imagem
       = form.file_field :image, class: "form-control"
+    .field
+      = form.select(:regulation_list, Regulation.all.order(:name).collect { |a| [a.description, a.id]}, {}, id: "regulation_list", label:'Tags', :multiple => false)
+ 
+    / select.js-example-basic-single
+    /   - @regulations.each do |person|
+    /     option value="#{person.id}" = person.name
+
+ 
 
     .actions
       = form.submit "Salvar", class: "btn btn-outline-primary"

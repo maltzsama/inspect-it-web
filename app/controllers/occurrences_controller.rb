@@ -20,10 +20,13 @@ class OccurrencesController < ApplicationController
   # GET /occurrences/new
   def new
     @occurrence = Occurrence.new(inspection_id: params[:inspection_id])
+    @regulations = Regulation.all
+
   end
 
   # GET /occurrences/1/edit
   def edit
+    @regulations = Regulation.all
   end
 
   # POST /occurrences
