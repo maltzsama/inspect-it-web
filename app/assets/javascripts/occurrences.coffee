@@ -4,5 +4,5 @@
 
 
 $(document).ready ->
-  $('#regulation_list').select2()
+  $('#regulation_list').select2 width: 800
   return
