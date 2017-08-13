@@ -14,6 +14,7 @@ class InspectionsController < ApplicationController
 
   def new
     @inspection = Inspection.new(company_id: params[:company_id])
+    @regulations = Regulation.all
   end
 
   def show

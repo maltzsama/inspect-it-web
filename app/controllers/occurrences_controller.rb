@@ -20,16 +20,20 @@ class OccurrencesController < ApplicationController
   # GET /occurrences/new
   def new
     @occurrence = Occurrence.new(inspection_id: params[:inspection_id])
+    @regulations = Regulation.all
+
   end
 
   # GET /occurrences/1/edit
   def edit
+    @regulations = Regulation.all
   end
 
   # POST /occurrences
   # POST /occurrences.json
   def create
     @occurrence = Occurrence.new(occurrence_params)
+    @regulations = Regulation.all
 
     respond_to do |format|
       if @occurrence.save
@@ -77,6 +81,6 @@ class OccurrencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def occurrence_params
-      params.require(:occurrence).permit(:description, :severity, :todo, :image, :inspection_id)
+      params.require(:occurrence).permit(:description, :severity, :todo, :image, :inspection_id, :regulation_id)
     end
 end

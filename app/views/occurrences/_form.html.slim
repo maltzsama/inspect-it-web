@@ -20,6 +20,12 @@
     .field
       = form.label :imagem
       = form.file_field :image, class: "form-control"
+    .field
+      = form.select(:regulation_id, Regulation.all.order(:name).collect { |a| ["#{a.code} #{a.description}", a.id]}, {}, id: "regulation_list", label:'NR', :multiple => false)
+    
+    br
+    br
+    br
 
     .actions
       = form.submit "Salvar", class: "btn btn-outline-primary"
