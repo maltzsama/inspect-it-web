@@ -4,6 +4,5 @@
 
 
 $(document).ready ->
-  $('#regulation_list').select2() ->
-    placeholder: "Select a state"
+  $('#regulation_list').select2()
   return
