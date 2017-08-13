@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728182514) do
+ActiveRecord::Schema.define(version: 20170813023421) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170728182514) do
     t.string "image"
     t.integer "inspection_id"
     t.integer "regulation_id"
+    t.string "correction"
     t.index ["inspection_id"], name: "index_occurrences_on_inspection_id"
     t.index ["regulation_id"], name: "index_occurrences_on_regulation_id"
   end
